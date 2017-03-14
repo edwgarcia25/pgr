@@ -119,10 +119,10 @@ iotfClient.on("connect", function () {
     // inital data packet to be emitted as a JSON object
     var dataPacket = {
         "d" : {
-            "temperature" : 0,
-            "pressure" : 50,
-            "humidity" : 10,
-            "luminosity" : 5
+            "oil" : 36000,
+            "distance" : 4783,
+            //"humidity" : 10,
+            //"luminosity" : 5
         }
     };
 
@@ -141,49 +141,49 @@ iotfClient.on("connect", function () {
         console.log(JSON.stringify(dataPacket));
 
         //
-        // increment temperature up to 100 then back down to 0
+        // increment oil up to 100 then back down to 0
         //
-        //if (dataPacket.d.temperature === 0) {
+        //if (dataPacket.d.oil === 0) {
         //   var countingUp = true;
-        //} else if (dataPacket.d.temperature === 100) {
+        //} else if (dataPacket.d.oil === 100) {
         //   var countingUp = false;
         //}
         //if (countingUp === true) {
-        //    if (dataPacket.d.temperature === 100) {
+        //    if (dataPacket.d.oil === 100) {
         //       var countingUp = false;
-        //    } else {
+        //    } else1{
         //       var countingUp = true;
         //    }
-        //    var temperatureIncrement = 20;
+        //    var oilDecrement = 20;
         //} else {
-        //    if (dataPacket.d.temperature === 0) {
+        //    if (dataPacket.d.oil === 0) {
         //       var countingUp = true
         //    } else {
         //       var countingUp = false;
         //    }
-            var temperatureIncrement = 20;
-            var humidityIncrement = 2;
+            var oilDecrement = 7;
+            var distanceDecrement = 1;
           //  var luminosityIncrement = 1;
         //}
-        if (dataPacket.d.temperature === 100) {
-            dataPacket.d.temperature = 0;
-        }
-        dataPacket.d.temperature = dataPacket.d.temperature + temperatureIncrement;
+        //if (dataPacket.d.oil === 100) {
+          //  dataPacket.d.oil = 0;
+        //}
+        dataPacket.d.oil = dataPacket.d.oil - oilDecrement;
 
-        if (dataPacket.d.humidity === 100) {
-            dataPacket.d.humidity = 0;
-        }
-        dataPacket.d.humidity = dataPacket.d.humidity + humidityIncrement;
+        //if (dataPacket.d.humidity === 100) {
+          //  dataPacket.d.humidity = 0;
+        //}
+        //dataPacket.d.humidity = dataPacket.d.humidity + distanceDecrement;
 
 
         //
-        // increment the pressure until 100 and start again at 0
+        // increment the distance until 100 and start again at 0
         //
-        var pressureIncrement = 2;
-        if (dataPacket.d.pressure === 100) {
-            dataPacket.d.pressure = 0;
-        }
-        dataPacket.d.pressure = dataPacket.d.pressure + pressureIncrement;
+        var distanceDecrement = 1;
+        //if (dataPacket.d.distance === 100) {
+          //  dataPacket.d.distance = 0;
+        //}
+        dataPacket.d.distance = dataPacket.d.distance - distanceDecrement;
 
     }, varIntervalBetweenData*1000);
 
