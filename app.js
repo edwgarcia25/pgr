@@ -119,8 +119,8 @@ iotfClient.on("connect", function () {
     // inital data packet to be emitted as a JSON object
     var dataPacket = {
         "d" : {
-            "oil" : 36000,
-            "distance" : 4783,
+            "altura" : 0,
+            //"distance" : 4783,
             //"humidity" : 10,
             //"luminosity" : 5
         }
@@ -141,34 +141,34 @@ iotfClient.on("connect", function () {
         console.log(JSON.stringify(dataPacket));
 
         //
-        // increment oil up to 100 then back down to 0
+        // increment altura up to 100 then back down to 0
         //
-        //if (dataPacket.d.oil === 0) {
+        //if (dataPacket.d.altura === 0) {
         //   var countingUp = true;
-        //} else if (dataPacket.d.oil === 100) {
+        //} else if (dataPacket.d.altura === 100) {
         //   var countingUp = false;
         //}
         //if (countingUp === true) {
-        //    if (dataPacket.d.oil === 100) {
+        //    if (dataPacket.d.altura === 100) {
         //       var countingUp = false;
         //    } else1{
         //       var countingUp = true;
         //    }
-        //    var oilDecrement = 20;
+        //    var alturaIncrement = 20;
         //} else {
-        //    if (dataPacket.d.oil === 0) {
+        //    if (dataPacket.d.altura === 0) {
         //       var countingUp = true
         //    } else {
         //       var countingUp = false;
         //    }
-            var oilDecrement = 7;
-            var distanceDecrement = 1;
+            var alturaIncrement = 10;
+            //var distanceDecrement = 1;
           //  var luminosityIncrement = 1;
         //}
-        //if (dataPacket.d.oil === 100) {
-          //  dataPacket.d.oil = 0;
+        //if (dataPacket.d.altura === 100) {
+          //  dataPacket.d.altura = 0;
         //}
-        dataPacket.d.oil = dataPacket.d.oil - oilDecrement;
+        dataPacket.d.altura = dataPacket.d.altura + alturaIncrement;
 
         //if (dataPacket.d.humidity === 100) {
           //  dataPacket.d.humidity = 0;
@@ -179,11 +179,11 @@ iotfClient.on("connect", function () {
         //
         // increment the distance until 100 and start again at 0
         //
-        var distanceDecrement = 1;
+        //var distanceDecrement = 1;
         //if (dataPacket.d.distance === 100) {
           //  dataPacket.d.distance = 0;
         //}
-        dataPacket.d.distance = dataPacket.d.distance - distanceDecrement;
+        //dataPacket.d.distance = dataPacket.d.distance - distanceDecrement;
 
     }, varIntervalBetweenData*1000);
 
