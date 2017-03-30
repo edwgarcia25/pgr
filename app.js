@@ -119,7 +119,7 @@ iotfClient.on("connect", function () {
     // inital data packet to be emitted as a JSON object
     var dataPacket = {
         "d" : {
-            "combustible" : 0,
+            "combustible" : 36000,
             //"distance" : 4783,
             //"humidity" : 10,
             //"luminosity" : 5
